@@ -1,7 +1,7 @@
 {
-  "name": "vite-module-federation",
+  "name": "host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/vite-module-federation/src",
+  "sourceRoot": "apps/host/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/vite-module-federation"
+        "outputPath": "dist/apps/host"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,16 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "vite-module-federation:build"
+        "buildTarget": "host:build",
+        "port": 5000
       },
       "configurations": {
         "development": {
-          "buildTarget": "vite-module-federation:build:development",
+          "buildTarget": "host:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "vite-module-federation:build:production",
+          "buildTarget": "host:production",
           "hmr": false
         }
       }
@@ -41,32 +42,29 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "vite-module-federation:build"
+        "buildTarget": "host:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "vite-module-federation:build:development"
+          "buildTarget": "host:build:development"
         },
         "production": {
-          "buildTarget": "vite-module-federation:build:production"
+          "buildTarget": "host:build:production"
         }
       }
+
     },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
+    "vite-preview": {
+      "executor": "nx:run-commands",
       "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/vite-module-federation"
+        "command": "vite preview apps/host"
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+    "vite-build": {
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": ["apps/vite-module-federation/**/*.{ts,tsx,js,jsx}"]
+        "command": "vite build apps/host"
       }
     }
-  },
-  "tags": []
+  }
 }
