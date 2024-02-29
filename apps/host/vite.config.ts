@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,7 +17,6 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    // nxViteTsPaths(),
     federation({
       name: 'host',
       remotes: {

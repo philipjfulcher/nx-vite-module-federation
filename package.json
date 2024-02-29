@@ -15,6 +15,7 @@
     "@nx/js": "18.0.5",
     "@nx/react": "18.0.5",
     "@nx/vite": "18.0.5",
+    "@nx/web": "18.0.5",
     "@nx/workspace": "18.0.5",
     "@originjs/vite-plugin-federation": "^1.3.2",
     "@swc-node/register": "1.8.0",
@@ -43,4 +44,3 @@
     "vitest": "0.34.6"
   }
 }
-
