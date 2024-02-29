@@ -22,9 +22,8 @@
     "e2e": {
       "cache": true
     },
-    "@nx/vite:test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
+    "preview": {
+      "dependsOn": ["build"]
     }
   },
   "namedInputs": {
@@ -54,5 +53,17 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "previewTargetName": "preview",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "serveStaticTargetName": "serve-static"
+      }
+    }
+  ]
 }

@@ -2,25 +2,20 @@
   "migrations": [
     {
       "cli": "nx",
-      "version": "17.0.2",
-      "description": "Remove deprecated build options",
-      "implementation": "./src/migrations/update-17-0-0/remove-deprecated-build-options",
-      "package": "@nx/js",
-      "name": "update-17-0-0-remove-deprecated-build-options"
+      "version": "18.0.0-beta.2",
+      "description": "Updates .env to disabled adding plugins when generating projects in an existing Nx workspace",
+      "implementation": "./src/migrations/update-18-0-0/disable-crystal-for-existing-workspaces",
+      "x-repair-skip": true,
+      "package": "nx",
+      "name": "18.0.0-disable-adding-plugins-for-existing-workspaces"
     },
     {
-      "version": "17.1.0-beta.1",
-      "description": "Updates for @typescript-utils/utils v6.9.1+",
-      "implementation": "./src/migrations/update-17-1-0/update-typescript-eslint",
-      "package": "@nx/eslint",
-      "name": "update-typescript-eslint"
-    },
-    {
-      "version": "17.1.0-beta.2",
-      "description": "Move target defaults",
-      "implementation": "./src/migrations/update-17-1-0/move-target-defaults",
-      "package": "@nx/vite",
-      "name": "move-target-defaults"
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Add NX_MF_DEV_SERVER_STATIC_REMOTES to inputs for task hashing when '@nx/webpack:webpack' is used for Module Federation.",
+      "factory": "./src/migrations/update-18-0-0/add-mf-env-var-to-target-defaults",
+      "package": "@nx/react",
+      "name": "add-module-federation-env-var-to-target-defaults"
     }
   ]
 }
