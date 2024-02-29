@@ -52,7 +52,6 @@
           "buildTarget": "host:build:production"
         }
       }
-
     },
     "vite-preview": {
       "executor": "nx:run-commands",
